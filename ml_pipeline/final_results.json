@@ -1,0 +1,45 @@
+{
+ "selected": "xgboost (depth=5, min_child_weight=1)",
+ "results": {
+  "baseline": {
+   "deviance": 0.47878683575275416,
+   "lift_top20": 0.20106120902027666,
+   "gini": -0.0030104966031012648,
+   "baseline_deviance": 0.47878683575275416,
+   "pct_better_than_baseline": 0.0
+  },
+  "Poisson regression": {
+   "deviance": 0.45527569552692204,
+   "lift_top20": 0.35209399279893877,
+   "gini": 0.2975961681567869,
+   "baseline_deviance": 0.47878683575275416,
+   "pct_better_than_baseline": 4.910565301752215,
+   "pct_better_95range": [
+    4.398184490748387,
+    5.313026892834545
+   ]
+  },
+  "gradient boosting": {
+   "deviance": 0.44805203473370614,
+   "lift_top20": 0.3879097972332765,
+   "gini": 0.32687906378020326,
+   "baseline_deviance": 0.47878683575275416,
+   "pct_better_than_baseline": 6.419307868130169,
+   "pct_better_95range": [
+    5.861765507562594,
+    6.8918738027529365
+   ]
+  },
+  "xgboost": {
+   "deviance": 0.44785632572887696,
+   "lift_top20": 0.38923630850862234,
+   "gini": 0.32842465128298726,
+   "baseline_deviance": 0.47878683575275416,
+   "pct_better_than_baseline": 6.460183888566589,
+   "pct_better_95range": [
+    5.930037282054995,
+    6.967574160118433
+   ]
+  }
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "family": "xgboost",
+ "model": "xgboost (depth=5, min_child_weight=1)",
+ "val_deviance": 0.4505548404579661,
+ "best_deviance": 0.4505548404579661,
+ "close": [
+  "xgboost (depth=5, min_child_weight=1)"
+ ],
+ "boot_pct_better": {
+  "Poisson regression": [
+   4.192232112711722,
+   5.264093606263032
+  ],
+  "gradient boosting": [
+   5.532132699061296,
+   6.517186099501477
+  ],
+  "xgboost": [
+   5.642165848860338,
+   6.708285800500993
+  ]
+ }
+}

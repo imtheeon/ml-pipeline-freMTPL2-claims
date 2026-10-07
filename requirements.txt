@@ -1,0 +1,9 @@
+pandas>=2.2
+numpy
+scikit-learn>=1.5
+xgboost>=3.0
+matplotlib
+marimo
+pyarrow
+joblib
+rdata

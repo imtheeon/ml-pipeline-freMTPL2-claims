@@ -1,0 +1,196 @@
+{
+  "schema_version": "1",
+  "created": "2026-10-07",
+  "shape": {
+    "n_rows": 677991,
+    "n_cols": 13,
+    "memory_mb": 101.95,
+    "sampled": true,
+    "sample_rows": 200000
+  },
+  "target": {
+    "name": "any_claim",
+    "task": "binary",
+    "n_classes": 2,
+    "class_balance": {
+      "0": 0.9632,
+      "1": 0.0368
+    },
+    "minority_frac": 0.0368
+  },
+  "columns": {
+    "IDpol": {
+      "kind": "id",
+      "missing_frac": 0.0,
+      "n_unique": 677991,
+      "unique_frac": 1.0
+    },
+    "ClaimNb": {
+      "kind": "numeric",
+      "missing_frac": 0.0,
+      "n_unique": 11,
+      "unique_frac": 0.0,
+      "min": 0.0,
+      "median": 0.0,
+      "max": 8.0,
+      "skew": 5.9235,
+      "outlier_frac": 0.0
+    },
+    "Exposure": {
+      "kind": "numeric",
+      "missing_frac": 0.0,
+      "n_unique": 181,
+      "unique_frac": 0.0003,
+      "min": 0.0027,
+      "median": 0.49,
+      "max": 2.01,
+      "skew": 0.0784,
+      "outlier_frac": 0.0
+    },
+    "VehPower": {
+      "kind": "numeric",
+      "missing_frac": 0.0,
+      "n_unique": 12,
+      "unique_frac": 0.0,
+      "min": 4.0,
+      "median": 6.0,
+      "max": 15.0,
+      "skew": 1.1708,
+      "outlier_frac": 0.0516
+    },
+    "VehAge": {
+      "kind": "numeric",
+      "missing_frac": 0.0,
+      "n_unique": 78,
+      "unique_frac": 0.0001,
+      "min": 0.0,
+      "median": 6.0,
+      "max": 100.0,
+      "skew": 1.0565,
+      "outlier_frac": 0.0044
+    },
+    "DrivAge": {
+      "kind": "numeric",
+      "missing_frac": 0.0,
+      "n_unique": 83,
+      "unique_frac": 0.0001,
+      "min": 18.0,
+      "median": 44.0,
+      "max": 100.0,
+      "skew": 0.4371,
+      "outlier_frac": 0.0019
+    },
+    "BonusMalus": {
+      "kind": "numeric",
+      "missing_frac": 0.0,
+      "n_unique": 115,
+      "unique_frac": 0.0002,
+      "min": 50.0,
+      "median": 50.0,
+      "max": 228.0,
+      "skew": 1.744,
+      "outlier_frac": 0.0923
+    },
+    "VehBrand": {
+      "kind": "categorical",
+      "missing_frac": 0.0,
+      "n_unique": 11,
+      "unique_frac": 0.0,
+      "n_levels": 11,
+      "top": {
+        "B12": 0.2439,
+        "B1": 0.2403,
+        "B2": 0.2363,
+        "B3": 0.0785,
+        "B5": 0.0513
+      }
+    },
+    "VehGas": {
+      "kind": "categorical",
+      "missing_frac": 0.0,
+      "n_unique": 2,
+      "unique_frac": 0.0,
+      "n_levels": 2,
+      "top": {
+        "Regular": 0.5096,
+        "Diesel": 0.4904
+      }
+    },
+    "Area": {
+      "kind": "categorical",
+      "missing_frac": 0.0,
+      "n_unique": 6,
+      "unique_frac": 0.0,
+      "n_levels": 6,
+      "top": {
+        "C": 0.2845,
+        "D": 0.2238,
+        "E": 0.2009,
+        "A": 0.1529,
+        "B": 0.1115
+      }
+    },
+    "Density": {
+      "kind": "numeric",
+      "missing_frac": 0.0,
+      "n_unique": 1607,
+      "unique_frac": 0.0024,
+      "min": 2.0,
+      "median": 388.0,
+      "max": 27000.0,
+      "skew": 4.6669,
+      "outlier_frac": 0.1186
+    },
+    "Region": {
+      "kind": "categorical",
+      "missing_frac": 0.0,
+      "n_unique": 22,
+      "unique_frac": 0.0,
+      "n_levels": 22,
+      "top": {
+        "Centre": 0.2379,
+        "Rhone-Alpes": 0.125,
+        "Provence-Alpes-Cotes-D'Azur": 0.1155,
+        "Ile-de-France": 0.1029,
+        "Bretagne": 0.062
+      }
+    },
+    "any_claim": {
+      "kind": "numeric",
+      "missing_frac": 0.0,
+      "n_unique": 2,
+      "unique_frac": 0.0,
+      "min": 0.0,
+      "median": 0.0,
+      "max": 1.0,
+      "skew": 4.9523,
+      "outlier_frac": 0.0
+    }
+  },
+  "duplicates": {
+    "exact_row_frac": 0.0
+  },
+  "constant_columns": [],
+  "high_cardinality_categoricals": [],
+  "datetime_columns": [],
+  "time_col": null,
+  "group_col": null,
+  "entity_candidates": [],
+  "leakage_suspects": [
+    {
+      "column": "ClaimNb",
+      "reason": "|corr| with target = 0.97"
+    }
+  ],
+  "traits": {
+    "n_rows": 677991,
+    "n_features": 12,
+    "task": "binary",
+    "minority_frac": 0.0368,
+    "has_datetime": false,
+    "has_groups": false,
+    "small_data": false,
+    "imbalanced": true,
+    "high_card_categoricals": []
+  }
+}
