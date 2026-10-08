@@ -1,5 +1,7 @@
 # Predicting car-insurance claim frequency (freMTPL2)
 
+[![tests](https://github.com/imtheeon/ml-pipeline-fremtpl2-claims/actions/workflows/tests.yml/badge.svg)](https://github.com/imtheeon/ml-pipeline-fremtpl2-claims/actions/workflows/tests.yml)
+
 A 16-step, gated ML pipeline on 677,991 real French motor insurance policies. Poisson regression vs gradient boosting vs XGBoost 3.4.1. CPU only, $0.
 
 ## The question
@@ -26,11 +28,14 @@ Ranges are 95% bootstrap ranges.
 - **Frequency only.** No claim sizes and no calendar dates, so this is not a price and I could not test a future year.
 - **Gains are modest, as expected.** Only 3.7% of policies have a claim; claims are noisy.
 
-## What makes the process trustworthy
-- **Exposure is a multiplier, not a feature.** Using policy length as an input would leak the answer, since policies often end because of a claim.
-- **Real-data cleanup:** impossible exposures (above 1 year, max 2.01), 100-year-old drivers and cars, up to 16 claims on one policy; all capped rather than deleted.
-- **Locked exam:** fingerprinted and scored once. Model choice, tuning (CV on train only) and the selection rule were all decided before the exam.
-- **Everything logged:** `ml_pipeline/PIPELINE.md` has every step, decision, figure explanation and a monitoring plan.
+## Why you can trust the numbers
+- Exposure (how long a policy runs) multiplies the predicted rate. It is never an input, because short policies often end after a claim and using it would leak the answer.
+- Impossible values were capped, not deleted: exposure above 1 year (max 2.01), drivers and cars near 100 years old, up to 16 claims on one policy.
+- The exam set is fingerprinted and scored once. The model choice, the tuning (cross-validation on train only) and the selection rule were all fixed before the exam.
+- `pytest` checks the metrics, the exposure rule and that the README numbers match the saved result files.
+
+## How this was built
+I'm moving into data work from life and health insurance sales. I built this with Claude Code and approved each gate myself (data, split and metric, model choice, final exam) before it moved on. Every step, decision and chart explanation is logged in `ml_pipeline/PIPELINE.md`, and `INTERVIEW_GUIDE.md` explains the project in plain words.
 
 ## Run it
 ```bash
@@ -45,3 +50,7 @@ Data: `freMTPL2freq` from the CASdatasets collection (github.com/dutangc/CASdata
 - `ml_pipeline/guard.py`: checks that block leakage and a second look at the exam set
 - `ml_pipeline/figures/`: every chart
 - `INTERVIEW_GUIDE.md`: this project explained in plain words
+
+## More from me
+- [ml-pipeline-pricing-promo](https://github.com/imtheeon/ml-pipeline-pricing-promo): the same pipeline on retail order data, predicting which discounted lines lose money
+- [pricing-promo-analysis](https://github.com/imtheeon/pricing-promo-analysis): analysis and Streamlit dashboard on discounts and margin
