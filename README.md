@@ -2,6 +2,11 @@
 
 [![tests](https://github.com/imtheeon/ml-pipeline-fremtpl2-claims/actions/workflows/tests.yml/badge.svg)](https://github.com/imtheeon/ml-pipeline-fremtpl2-claims/actions/workflows/tests.yml)
 
+## In plain English
+- **What it does:** predicts which car-insurance policies are likely to have a claim, so an insurer can charge risky and safe drivers fairly.
+- **Result:** on 135,598 policies the model had never seen, it prices risk **6.5% better** than charging everyone the average. The riskiest 20% of policies claim **2.3x** the average and the safest 20% claim **0.5x**.
+- **Why the gain is modest:** only 3.7% of policies have a claim at all, so claims are noisy. A single-digit gain is realistic here, and the caveats below say where the model is still wrong.
+
 A 16-step, gated ML pipeline on 677,991 real French motor insurance policies. Poisson regression vs gradient boosting vs XGBoost 3.4.1. CPU only, $0.
 
 ## The question
@@ -50,6 +55,9 @@ Data: `freMTPL2freq` from the CASdatasets collection (github.com/dutangc/CASdata
 - `ml_pipeline/guard.py`: checks that block leakage and a second look at the exam set
 - `ml_pipeline/figures/`: every chart
 - `INTERVIEW_GUIDE.md`: this project explained in plain words
+
+## License
+Code: MIT (see `LICENSE`). Data: freMTPL2freq from CASdatasets, downloaded at run time and not redistributed here. Check the CASdatasets page for its terms before reusing the data.
 
 ## More from me
 - [ml-pipeline-pricing-promo](https://github.com/imtheeon/ml-pipeline-pricing-promo): the same pipeline on retail order data, predicting which discounted lines lose money
